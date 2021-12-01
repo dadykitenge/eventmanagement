@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -31,7 +30,7 @@ class EventServiceTest {
                 .eventDescription("Gospel Concert : Free entrance")
                 .startDate(LocalDateTime.now())
                 .endDate(LocalDateTime.now().plusHours(4))
-                .zoneOffset(ZonedDateTime.now().getOffset())
+                .zoneOffset("+02:00")
                 .build();
         Mockito.when(eventRepository.save(event)).thenReturn(event);
     }

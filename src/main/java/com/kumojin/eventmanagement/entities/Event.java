@@ -15,7 +15,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 
 @Entity
 @Data
@@ -39,7 +38,7 @@ public class Event {
     @JsonFormat(shape = JsonFormat.Shape.STRING,
             pattern = Constant.LOCAL_DATE_TIME_FORMAT)
     private LocalDateTime endDate;
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private ZoneOffset zoneOffset;
+    @Size(min = 6, max = 6)
+    private String zoneOffset;
 
 }

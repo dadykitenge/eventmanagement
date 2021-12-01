@@ -19,10 +19,7 @@ public class EventController {
 
     @PostMapping(path = "/events")
     public Event saveEvent(@Valid @RequestBody Event event) {
-
         log.info("Inside saveEvent of EventController");
-        if(event.getStartDate().isBefore(event.getEndDate()))
-            return eventService.saveEvent(event);
         return eventService.saveEvent(event);
 
     }
@@ -32,4 +29,5 @@ public class EventController {
         log.info("Inside getEvents of EventController");
         return eventService.getEvents();
     }
+
 }

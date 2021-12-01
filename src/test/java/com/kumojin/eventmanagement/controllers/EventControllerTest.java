@@ -14,7 +14,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 @WebMvcTest(EventController.class)
 class EventControllerTest {
@@ -35,7 +34,7 @@ class EventControllerTest {
                 .eventDescription("Gospel Concert : Free entrance")
                 .startDate(LocalDateTime.now())
                 .endDate(LocalDateTime.now().plusHours(4))
-                .zoneOffset(ZonedDateTime.now().getOffset())
+                .zoneOffset("+02:00")
                 .build();
     }
 
@@ -46,7 +45,7 @@ class EventControllerTest {
                 .eventDescription("Gospel Concert : Free entrance")
                 .startDate(LocalDateTime.now())
                 .endDate(LocalDateTime.now().plusHours(4))
-                .zoneOffset(ZonedDateTime.now().getOffset())
+                .zoneOffset("+02:00")
                 .build();
         Mockito.when(eventService.saveEvent(inputEvent)).thenReturn(event);
 

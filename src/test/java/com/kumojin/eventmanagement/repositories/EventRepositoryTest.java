@@ -10,7 +10,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -34,7 +33,7 @@ class EventRepositoryTest {
                 .eventDescription("VIP")
                 .startDate(LocalDateTime.now())
                 .endDate(LocalDateTime.now().plusDays(5))
-                .zoneOffset(OffsetDateTime.now().getOffset())
+                .zoneOffset("+02:00")
                 .build();
         entityManager.persist(event);
     }
